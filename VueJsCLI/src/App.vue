@@ -9,7 +9,7 @@
       <ListUser v-bind:listUser="listUser"
       v-on:appDelete="handleDelete"/>
       <comp-footer/>
-
+      <demo-ref/>
     </div>
   </div>
 </template>
@@ -19,6 +19,7 @@
 import CompHeader from './components/CompHeader.vue';
 import CompFooter from './components/CompFooter.vue';
 import ListUser from "./components/ListUser";
+import DemoRef from "./components/DemoRef";
 
 export default {
   name: 'app',
@@ -36,6 +37,7 @@ export default {
     }
   },
   components: {
+    DemoRef,
     ListUser,
     CompHeader,
     CompFooter
