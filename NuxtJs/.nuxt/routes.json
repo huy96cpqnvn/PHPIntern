@@ -1,0 +1,16 @@
+[
+  {
+    "name": "posts",
+    "path": "/posts",
+    "component": "/home/huy/PhpstormProjects/NuxtJs/pages/posts.vue",
+    "chunkName": "pages/posts",
+    "_name": "_aa44fb72"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/huy/PhpstormProjects/NuxtJs/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_024d97c6"
+  }
+]
