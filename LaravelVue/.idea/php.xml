@@ -103,6 +103,7 @@
       <path value="$PROJECT_DIR$/blog/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/blog/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/blog/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/blog/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

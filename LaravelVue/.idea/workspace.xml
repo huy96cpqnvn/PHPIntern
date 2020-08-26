@@ -7,7 +7,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/blog/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -15,6 +15,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
+        <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -121,6 +123,7 @@
       <path value="$PROJECT_DIR$/blog/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/blog/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/blog/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/blog/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gXSZ60oUwwts8sEdDBBKPKGIy2" />
@@ -131,7 +134,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VuexTest" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -143,10 +146,22 @@
       <option name="presentableId" value="Default" />
       <updated>1598259497222</updated>
       <workItem from="1598259498353" duration="4926000" />
+      <workItem from="1598317968300" duration="23515000" />
+      <workItem from="1598403999759" duration="3032000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1598414005181">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1598414005181" />
+    <state x="416" y="27" width="618" height="741" key="find.popup" timestamp="1598342480801">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="416" y="27" width="618" height="741" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1598342480801" />
   </component>
 </project>

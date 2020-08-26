@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Todo;
 use App\Http\Controllers\BaseController as BaseController;
+use Illuminate\Http\Request;
 
 
 class TodoController extends BaseController
@@ -16,7 +16,8 @@ class TodoController extends BaseController
      */
     public function index()
     {
-        //
+        $todo = Todo::orderBy('created_at','desc')->get();
+        return $this->sendResponse($todo->toArray(),"Get list todo success");
     }
 
     /**
@@ -26,7 +27,7 @@ class TodoController extends BaseController
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -37,7 +38,20 @@ class TodoController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();   /////thay thế cho việc insert từng trường vào bảng
+        $validate = $request->validate(
+            [
+                'title'=>'required|string',
+                'description'=>'required',
+                'status'=>'required'
+            ]
+        );
+        ///Sử dụng khi custom Validate
+//        if($validate->fails()){
+//            return $this->sendErrors('Error Validate', $validate->error());
+//        }
+        $todo = Todo::create($input);
+        return $this->sendResponse($todo->toArray(),'Created Successfully');
     }
 
     /**
@@ -59,7 +73,11 @@ class TodoController extends BaseController
      */
     public function edit($id)
     {
-        //
+        $todo = Todo::find($id);
+        if(is_null($todo)) {
+            return $this->sendErrors('Todo not found');
+        }
+        return $this->sendResponse($todo->toArray(),'Get todo success');
     }
 
     /**
@@ -71,7 +89,26 @@ class TodoController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        var_dump($request->all());die;
+
+        $validate = $request->validate(
+            [
+                'title'=>'required|string',
+                'description'=>'required',
+                'status'=>'required'
+            ]
+        );
+        ///Sử dụng khi custom Validate
+//        if($validate->fails()){
+//            return $this->sendErrors('Error Validate', $validate->error());
+//        }
+        $todo = Todo::find($id);
+        $todo->title = $input['title'];
+        $todo->description = $input['description'];
+        $todo->status = $input['status'];
+        $todo->save();
+        return $this->sendResponse($todo->toArray(),'Update Successfully');
     }
 
     /**
@@ -82,6 +119,8 @@ class TodoController extends BaseController
      */
     public function destroy($id)
     {
-        //
+        $todo=Todo::find($id);
+        $todo->delete();
+        return $this->sendResponse($todo->toArray(),'Delete Successfully');
     }
 }

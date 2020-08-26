@@ -13,6 +13,8 @@ class BaseController extends Controller
             'data'=>$result,
             'message'=>$message
         ];
+//        echo "<pre>";
+//        var_dump(response()->json($response,200));   Cách hiển thị Json cho dễ nhìn
         return response()->json($response,200);
     }
     public function sendErrors($error, $messageError=[],$code=404){

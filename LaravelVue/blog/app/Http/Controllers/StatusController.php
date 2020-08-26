@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Todo;
 use Illuminate\Http\Request;
+use App\Http\Controllers\BaseController as BaseController;
 
-class StatusController extends Controller
+class StatusController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -80,5 +82,11 @@ class StatusController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getListByStatus($status) {
+        $todos = Todo::where('status',$status)->orderBy('created_at','desc')->get();
+        $message='Get Todos Success';
+        return $this->sendResponse($todos->toArray(),$message);
     }
 }
