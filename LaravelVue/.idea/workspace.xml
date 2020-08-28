@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac92dba5-42ee-477b-ab4c-8717aac790fa" name="Default Changelist" comment="" />
+    <list default="true" id="ac92dba5-42ee-477b-ab4c-8717aac790fa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestVueJS/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/Components/TaskItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/Components/TaskList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/TodoList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/babel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/testtodo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestVueJS/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TestVueJS/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +30,9 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -127,6 +141,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1gXSZ60oUwwts8sEdDBBKPKGIy2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -134,7 +149,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VuexTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TodoListVue" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -148,6 +163,8 @@
       <workItem from="1598259498353" duration="4926000" />
       <workItem from="1598317968300" duration="23515000" />
       <workItem from="1598403999759" duration="3032000" />
+      <workItem from="1598513805159" duration="5330000" />
+      <workItem from="1598576856337" duration="341000" />
     </task>
     <servers />
   </component>
@@ -155,10 +172,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1598414005181">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1598577195903">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1598414005181" />
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1598577195903" />
     <state x="416" y="27" width="618" height="741" key="find.popup" timestamp="1598342480801">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
