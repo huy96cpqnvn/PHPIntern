@@ -6,7 +6,7 @@ import Edit from "./components/EditTodo";
 const routes = [
     { path: '/', component: ShowView },
     { path: '/todo/create', component: Create },
-    { path: '/todo/create/:id', component: Edit },
+    { path: '/todo/create/{id}', component: Edit },
 ];
 
 

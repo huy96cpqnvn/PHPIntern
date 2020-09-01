@@ -2079,6 +2079,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ShowView"
 });
@@ -37950,76 +37951,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "row m-2" }, [
+      _c(
+        "label",
+        {
+          staticClass: "col-sm-2 col-form-label font-weight-bold pull-right",
+          attrs: { for: "inputPassword" }
+        },
+        [_vm._v("Phân Loại:")]
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-sm-4" },
+        [
+          _c("router-link", { attrs: { to: "/todo/create" } }, [
+            _c("button", { staticClass: "btn-primary btn-sm" }, [
+              _vm._v("Thêm công việc")
+            ])
+          ])
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "row m-2" }, [
-        _c(
-          "label",
-          {
-            staticClass: "col-sm-2 col-form-label font-weight-bold pull-right",
-            attrs: { for: "inputPassword" }
-          },
-          [_vm._v("Phân Loại:")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-3" }, [
-          _c(
-            "select",
-            {
-              staticClass: "form-control form-control-sm",
-              attrs: { id: "status" }
-            },
-            [
-              _c("option", { attrs: { disable: "", value: "TẤT CẢ" } }, [
-                _vm._v("--TẤT CẢ--")
-              ]),
-              _vm._v(" "),
-              _c("option", [_vm._v("ACTIVE")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("DONE")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("DELETED")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" })
+    return _c("div", { staticClass: "col-sm-3" }, [
+      _c(
+        "select",
+        {
+          staticClass: "form-control form-control-sm",
+          attrs: { id: "status" }
+        },
+        [
+          _c("option", { attrs: { disable: "", value: "TẤT CẢ" } }, [
+            _vm._v("--TẤT CẢ--")
+          ]),
+          _vm._v(" "),
+          _c("option", [_vm._v("ACTIVE")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("DONE")]),
+          _vm._v(" "),
+          _c("option", [_vm._v("DELETED")])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "table table-bordered table-striped" }, [
+      _c("thead", [
+        _c("tr", [
+          _c("th", [_vm._v("Tên công việc")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Ghi chú")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Trạng thái")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Chi Tiết")])
+        ])
       ]),
       _vm._v(" "),
-      _c("table", { staticClass: "table table-bordered table-striped" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", [_vm._v("Tên công việc")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Ghi chú")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Trạng thái")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Chi Tiết")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("td", [
-              _vm._v("\n                Nộp bài tập UML\n            ")
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Nhớ nộp đúng hạn 1/1/2020")]),
-            _vm._v(" "),
-            _c("td", [_vm._v(" DONE")]),
-            _vm._v(" "),
-            _c("td", { staticClass: "text-center" }, [
-              _c("button", { staticClass: " btn-danger btn-sm" }, [
-                _vm._v("Xóa")
-              ])
-            ])
+      _c("tbody", [
+        _c("tr", [
+          _c("td", [_vm._v("\n                Nộp bài tập UML\n            ")]),
+          _vm._v(" "),
+          _c("td", [_vm._v("Nhớ nộp đúng hạn 1/1/2020")]),
+          _vm._v(" "),
+          _c("td", [_vm._v(" DONE")]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center" }, [
+            _c("button", { staticClass: " btn-danger btn-sm" }, [_vm._v("Xóa")])
           ])
         ])
       ])
@@ -54906,7 +54920,7 @@ var routes = [{
   path: '/todo/create',
   component: _components_CreateTodo__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
-  path: '/todo/create/:id',
+  path: '/todo/create/{id}',
   component: _components_EditTodo__WEBPACK_IMPORTED_MODULE_2__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
@@ -54931,8 +54945,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/huy/PhpstormProjects/LaravelVue/blog/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/huy/PhpstormProjects/LaravelVue/blog/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/huy/PHP Test/PHPIntern/LaravelVue/blog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/huy/PHP Test/PHPIntern/LaravelVue/blog/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

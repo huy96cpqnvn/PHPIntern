@@ -11,6 +11,7 @@
                     </select>
                 </div>
                 <div class="col-sm-4">
+                    <router-link to="/todo/create"><button class="btn-primary btn-sm">Thêm công việc</button></router-link>
                 </div>
 
             </div>

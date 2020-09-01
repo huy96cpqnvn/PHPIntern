@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac92dba5-42ee-477b-ab4c-8717aac790fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TestVueJS/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/Components/TaskItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/Components/TaskList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/TodoList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/babel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/testtodo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../TestVueJS/src/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/resources/js/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/resources/js/store/modules/todo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestVueJS/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TestVueJS/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/js/components/ShowView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/components/ShowView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vuex/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vuex/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,8 +147,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TodoListVue" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vuex" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -165,6 +164,10 @@
       <workItem from="1598403999759" duration="3032000" />
       <workItem from="1598513805159" duration="5330000" />
       <workItem from="1598576856337" duration="341000" />
+      <workItem from="1598584799294" duration="2656000" />
+      <workItem from="1598587994128" duration="1819000" />
+      <workItem from="1598836097821" duration="1493000" />
+      <workItem from="1598855971869" duration="31000" />
     </task>
     <servers />
   </component>
@@ -172,10 +175,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1598577195903">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1598856000346">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1598577195903" />
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1598856000346" />
     <state x="416" y="27" width="618" height="741" key="find.popup" timestamp="1598342480801">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
