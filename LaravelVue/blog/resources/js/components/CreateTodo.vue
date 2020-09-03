@@ -9,17 +9,17 @@
                     <form class="m-5">
                         <div class="form-group">
                             <label for="title">Tên Công Việc</label>
-                            <input type="text" class="form-control" id="title" placeholder="Mời nhập công việc" required>
+                            <input type="text" v-model="todo.title" class="form-control" id="title" placeholder="Mời nhập công việc" required>
                             <!-- <span>{{ errors.first('title') }}</span> -->
                         </div>
                         <div class="form-group">
                             <label for="description">Ghi chú</label>
-                            <input type="text"  class="form-control" id="description" placeholder="Mời nhập ghi chú" required>
+                            <input type="text"  class="form-control" v-model="todo.description" id="description" placeholder="Mời nhập ghi chú" required>
                             <!-- <span>{{ errors.first('description') }}</span> -->
                         </div>
                         <div class="form-group">
                             <label for="status">Trạng Thái</label>
-                            <select class="form-control" id="status">
+                            <select class="form-control" v-model="todo.status" id="status">
                                 <option disable value="0">Please, Choose an option</option>
                                 <option>ACTIVE</option>
                                 <option>DONE</option>
@@ -39,7 +39,25 @@
 
 <script>
 export default {
-    name: "CreateTodo"
+    name: "CreateTodo",
+    data() {
+        return {
+            todoId: null,
+            todo: {
+                title: null,
+                description: null,
+                status: null
+            }
+
+        }
+    },
+    methods: {
+        addTodo() {
+            this.$store.dispatch('addTodo', this.todo).then(res => {
+
+            })
+        }
+    }
 }
 </script>
 

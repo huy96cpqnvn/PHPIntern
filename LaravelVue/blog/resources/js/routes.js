@@ -4,9 +4,9 @@ import Create from "./components/CreateTodo";
 import Edit from "./components/EditTodo";
 
 const routes = [
-    { path: '/', component: ShowView },
-    { path: '/todo/create', component: Create },
-    { path: '/todo/create/{id}', component: Edit },
+    { path: '/',name: 'todo', component: ShowView },
+    { path: '/todo/create', name: 'create', component: Create },
+    { path: '/todo/edit/:id', name: 'edit', component: Edit },
 ];
 
 
