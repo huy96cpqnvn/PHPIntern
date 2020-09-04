@@ -90,7 +90,7 @@ class TodoController extends BaseController
     public function update(Request $request, $id)
     {
         $input = $request->all();
-        var_dump($request->all());die;
+        var_dump($request->all());
 
         $validate = $request->validate(
             [

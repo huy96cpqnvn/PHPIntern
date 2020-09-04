@@ -6,7 +6,7 @@
                     <h3>THÊM CÔNG VIỆC</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="m-5">
+                    <form class="m-5" @submit.prevent="addTodo">
                         <div class="form-group">
                             <label for="title">Tên Công Việc</label>
                             <input type="text" v-model="todo.title" class="form-control" id="title" placeholder="Mời nhập công việc" required>
@@ -28,7 +28,7 @@
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                            <button type="submit" class="btn btn-danger">Hủy bỏ</button>
+                            <button type="button" class="btn btn-danger" v-on:click="cancel">Hủy bỏ</button>
                         </div>
                     </form>
                 </div>
@@ -46,16 +46,27 @@ export default {
             todo: {
                 title: null,
                 description: null,
-                status: null
+                status: 0
             }
 
         }
     },
     methods: {
         addTodo() {
+            console.log('a')
             this.$store.dispatch('addTodo', this.todo).then(res => {
+                if (res.status == 200) {
+                    swal({
+                        title: "Add Todo Successfully",
+                        icon: "success"
+                    })
+                    this.$router.push("/")
+                }
 
             })
+        },
+        cancel(){
+            this.$router.push("/")
         }
     }
 }

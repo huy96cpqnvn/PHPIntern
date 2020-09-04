@@ -1979,13 +1979,28 @@ __webpack_require__.r(__webpack_exports__);
       todo: {
         title: null,
         description: null,
-        status: null
+        status: 0
       }
     };
   },
   methods: {
     addTodo: function addTodo() {
-      this.$store.dispatch('addTodo', this.todo).then(function (res) {});
+      var _this = this;
+
+      console.log('a');
+      this.$store.dispatch('addTodo', this.todo).then(function (res) {
+        if (res.status == 200) {
+          swal({
+            title: "Add Todo Successfully",
+            icon: "success"
+          });
+
+          _this.$router.push("/");
+        }
+      });
+    },
+    cancel: function cancel() {
+      this.$router.push("/");
     }
   }
 });
@@ -2039,7 +2054,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "EditTodo"
+  name: "EditTodo",
+  data: function data() {
+    return {
+      todoId: null,
+      todo: {
+        title: null,
+        description: null,
+        status: null
+      }
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    var id = this.$route.params.id; //// Cách lấy tham số trong đường dẫn
+
+    this.todoId = id;
+    this.$store.dispatch('editTodo', {
+      id: id
+    }).then(function (res) {
+      _this.todo = res.data.data;
+    });
+  },
+  methods: {
+    updateTodo: function updateTodo() {
+      var _this2 = this;
+
+      console.log('a');
+      this.$store.dispatch('updateTodo', this.todo).then(function (res) {
+        if (res.status == 200) {
+          swal({
+            title: "Edit Todo successfully",
+            icon: "success"
+          });
+
+          _this2.$router.push("/");
+        }
+      });
+    },
+    cancel: function cancel() {
+      this.$router.push("/");
+    }
+  }
 });
 
 /***/ }),
@@ -37748,9 +37805,14 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("h3", { staticClass: "bg-primary p-3" }, [
-        _vm._v("Welcome to my blog")
-      ]),
+      _c(
+        "h3",
+        {
+          staticClass: "bg-primary p-3 ",
+          staticStyle: { "text-align": "center", color: "white" }
+        },
+        [_vm._v("Laravel + VueJS + Vuex + VueRouter")]
+      ),
       _vm._v(" "),
       _c("router-view")
     ],
@@ -37791,216 +37853,47 @@ var render = function() {
           _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
-            _c("form", { staticClass: "m-5" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "title" } }, [
-                  _vm._v("Tên Công Việc")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.todo.title,
-                      expression: "todo.title"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "title",
-                    placeholder: "Mời nhập công việc",
-                    required: ""
-                  },
-                  domProps: { value: _vm.todo.title },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.todo, "title", $event.target.value)
-                    }
+            _c(
+              "form",
+              {
+                staticClass: "m-5",
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.addTodo($event)
                   }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "description" } }, [
-                  _vm._v("Ghi chú")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.todo.description,
-                      expression: "todo.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "description",
-                    placeholder: "Mời nhập ghi chú",
-                    required: ""
-                  },
-                  domProps: { value: _vm.todo.description },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.todo, "description", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "status" } }, [
-                  _vm._v("Trạng Thái")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.todo.status,
-                        expression: "todo.status"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "status" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.todo,
-                          "status",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { disable: "", value: "0" } }, [
-                      _vm._v("Please, Choose an option")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("ACTIVE")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("DONE")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("DELETED")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _vm._m(1)
-            ])
-          ])
-        ])
-      ]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", [_vm._v("THÊM CÔNG VIỆC")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Lưu thay đổi")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-danger", attrs: { type: "submit" } },
-        [_vm._v("Hủy bỏ")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EditTodo.vue?vue&type=template&id=645c12db&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EditTodo.vue?vue&type=template&id=645c12db&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        {
-          staticClass: "col-xl-8 mx-auto m-5 ",
-          staticStyle: { border: "2px solid #000000", padding: "5px" }
-        },
-        [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _c("h3", [_vm._v("SỬA CÔNG VIỆC")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _c("form", { staticClass: "m-5" }, [
+                }
+              },
+              [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "title" } }, [
                     _vm._v("Tên Công Việc")
                   ]),
                   _vm._v(" "),
                   _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.todo.title,
+                        expression: "todo.title"
+                      }
+                    ],
                     staticClass: "form-control",
                     attrs: {
                       type: "text",
                       id: "title",
                       placeholder: "Mời nhập công việc",
                       required: ""
+                    },
+                    domProps: { value: _vm.todo.title },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.todo, "title", $event.target.value)
+                      }
                     }
                   })
                 ]),
@@ -38011,12 +37904,29 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.todo.description,
+                        expression: "todo.description"
+                      }
+                    ],
                     staticClass: "form-control",
                     attrs: {
                       type: "text",
                       id: "description",
                       placeholder: "Mời nhập ghi chú",
                       required: ""
+                    },
+                    domProps: { value: _vm.todo.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.todo, "description", $event.target.value)
+                      }
                     }
                   })
                 ]),
@@ -38028,7 +37938,37 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c(
                     "select",
-                    { staticClass: "form-control", attrs: { id: "status" } },
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.todo.status,
+                          expression: "todo.status"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "status" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.todo,
+                            "status",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
                     [
                       _c("option", { attrs: { disable: "", value: "0" } }, [
                         _vm._v("Please, Choose an option")
@@ -38057,16 +37997,228 @@ var staticRenderFns = [
                     "button",
                     {
                       staticClass: "btn btn-danger",
-                      attrs: { type: "submit" }
+                      attrs: { type: "button" },
+                      on: { click: _vm.cancel }
                     },
                     [_vm._v("Hủy bỏ")]
                   )
                 ])
-              ])
-            ])
+              ]
+            )
           ])
-        ]
-      )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-heading" }, [
+      _c("h3", [_vm._v("THÊM CÔNG VIỆC")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EditTodo.vue?vue&type=template&id=645c12db&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EditTodo.vue?vue&type=template&id=645c12db&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "col-xl-8 mx-auto m-5 ",
+        staticStyle: { border: "2px solid #000000", padding: "5px" }
+      },
+      [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c(
+              "form",
+              {
+                staticClass: "m-5",
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.updateTodo($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "title" } }, [
+                    _vm._v("Tên Công Việc")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.todo.title,
+                        expression: "todo.title"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "title",
+                      placeholder: "Mời nhập công việc",
+                      required: ""
+                    },
+                    domProps: { value: _vm.todo.title },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.todo, "title", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "description" } }, [
+                    _vm._v("Ghi chú")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.todo.description,
+                        expression: "todo.description"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "description",
+                      placeholder: "Mời nhập ghi chú",
+                      required: ""
+                    },
+                    domProps: { value: _vm.todo.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.todo, "description", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "status" } }, [
+                    _vm._v("Trạng Thái")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.todo.status,
+                          expression: "todo.status"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "status" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.todo,
+                            "status",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { disable: "", value: "0" } }, [
+                        _vm._v("Please, Choose an option")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("ACTIVE")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("DONE")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("DELETED")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Lưu thay đổi")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "submit" },
+                      on: { click: _vm.cancel }
+                    },
+                    [_vm._v("Hủy bỏ")]
+                  )
+                ])
+              ]
+            )
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-heading" }, [
+      _c("h3", [_vm._v("SỬA CÔNG VIỆC")])
     ])
   }
 ]
@@ -38099,7 +38251,52 @@ var render = function() {
         [_vm._v("Phân Loại:")]
       ),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.status,
+                expression: "status"
+              }
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { id: "status" },
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.status = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.getListByStatus
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { disable: "", value: "TẤT CẢ" } }, [
+              _vm._v("--TẤT CẢ--")
+            ]),
+            _vm._v(" "),
+            _c("option", [_vm._v("ACTIVE")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("DONE")]),
+            _vm._v(" "),
+            _c("option", [_vm._v("DELETED")])
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -38116,7 +38313,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-bordered table-striped" }, [
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "tbody",
@@ -38169,31 +38366,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-3" }, [
-      _c(
-        "select",
-        {
-          staticClass: "form-control form-control-sm",
-          attrs: { id: "status" }
-        },
-        [
-          _c("option", { attrs: { disable: "", value: "TẤT CẢ" } }, [
-            _vm._v("--TẤT CẢ--")
-          ]),
-          _vm._v(" "),
-          _c("option", [_vm._v("ACTIVE")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("DONE")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("DELETED")])
-        ]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

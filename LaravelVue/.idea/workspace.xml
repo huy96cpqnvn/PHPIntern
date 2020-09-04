@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac92dba5-42ee-477b-ab4c-8717aac790fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/blog/resources/js/store/getters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/resources/js/store/mutations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/resources/js/store/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/app/Http/Controllers/TodoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/blog/app/Http/Controllers/TodoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/components/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/resources/js/components/CreateTodo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/components/CreateTodo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/js/components/EditTodo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/components/EditTodo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/resources/js/components/ShowView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/components/ShowView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/resources/js/store/modules/todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/store/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/blog/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/js/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/js/store/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/blog/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +170,7 @@
       <workItem from="1598836097821" duration="1493000" />
       <workItem from="1598855971869" duration="31000" />
       <workItem from="1599100034925" duration="16218000" />
+      <workItem from="1599182992472" duration="14955000" />
     </task>
     <servers />
   </component>

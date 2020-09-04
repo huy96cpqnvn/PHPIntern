@@ -13,9 +13,9 @@ export default {
     },
     addTodo({ commit, dispatch }, payload) {
         let result = axios.post('api/todo', payload).then(res => {
-            return res
+            return res;
         })
-        return result
+        return result;
     },
     editTodo({ commit }, payload) {
         let result = axios.get('api/todo/' + payload.id + "/edit").then(res => {

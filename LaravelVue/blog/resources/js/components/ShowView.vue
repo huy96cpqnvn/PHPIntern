@@ -3,7 +3,7 @@
             <div class="row m-2">
                 <label  class="col-sm-2 col-form-label font-weight-bold pull-right">Phân Loại:</label>
                 <div class="col-sm-3">
-                    <select class="form-control form-control-sm" id="status">
+                    <select class="form-control form-control-sm" @change="getListByStatus" v-model="status" id="status">
                         <option disable value="TẤT CẢ">--TẤT CẢ--</option>
                         <option>ACTIVE</option>
                         <option>DONE</option>
