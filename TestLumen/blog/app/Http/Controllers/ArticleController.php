@@ -37,7 +37,7 @@ class ArticleController extends Controller
         // ]));
 
         $article = Article::create($request->all());
-        
+
         return response()->json($article, 201); //201 là status khi làm việc với API
     }
     public function update($id, Request $request) {
@@ -60,6 +60,6 @@ class ArticleController extends Controller
 
     public function delete($id) {
         Article::findOrFail($id)->delete();
-        return response('Delete successfully, 200');
+        return response('Delete successfully',200);
     }
 }
