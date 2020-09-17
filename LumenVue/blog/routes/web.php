@@ -20,12 +20,14 @@ $router->group(['prefix' => 'api'], function ($router){
     $router->post('category', 'CategoryController@addCategory');
     $router->put('category/{id}', 'CategoryController@updateCategory');
     $router->delete('category/{id}', 'CategoryController@deleteCategory');
+    $router->get('category/search/{search?}', 'CategoryController@searchCategory');
 
     $router->get('news', 'NewsController@showNews');
     $router->get('news/{id}', 'NewsController@showOneNews');
     $router->post('news', 'NewsController@addNews');
     $router->put('news/{id}', 'NewsController@updateNews');
     $router->delete('news/{id}', 'NewsController@deleteNews');
+    $router->get('list-by-status/{status}', 'NewsController@showNewsByStatus');
 });
 $router->get('/{route:.*}/', function ()  {
     return view('app');

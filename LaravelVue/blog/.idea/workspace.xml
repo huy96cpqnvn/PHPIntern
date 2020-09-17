@@ -2,11 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967972b0-d50a-4caa-bcd9-9352157a11d5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TestLumen/blog/app/Http/Controllers/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../TestLumen/blog/app/Http/Controllers/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TestLumen/blog/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../TestLumen/blog/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TestLumen/blog/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../TestLumen/blog/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TestLumen/blog/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../TestLumen/blog/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/components/CreateCategory.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/components/CreateNews.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/components/EditCategory.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/components/EditNews.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/store/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/store/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/store/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/app/Http/Controllers/NewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/app/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/app/News.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/public/dist/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/public/dist/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/public/dist/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/public/dist/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/public/dist/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/public/dist/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/components/ShowCategory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/components/ShowCategory.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/components/ShowNews.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/components/ShowNews.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LumenVue/blog/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../LumenVue/blog/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,10 +178,21 @@
       <workItem from="1599445681719" duration="238000" />
       <workItem from="1599447110170" duration="380000" />
       <workItem from="1599619599142" duration="6245000" />
+      <workItem from="1599700996860" duration="16880000" />
+      <workItem from="1599786450527" duration="3531000" />
+      <workItem from="1600045591851" duration="2509000" />
+      <workItem from="1600218482309" duration="8000" />
+      <workItem from="1600227550979" duration="2556000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1600218488938">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1600218488938" />
   </component>
 </project>

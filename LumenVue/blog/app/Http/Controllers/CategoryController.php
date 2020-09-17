@@ -15,11 +15,12 @@ class CategoryController extends Controller
     }
 
     public function addCategory(Request $request) {
+
         $this->validate($request, [
             'title' => 'required'
         ]);
         $cate = Category::create($request->all());
-        var_dump($cate);die;
+//        var_dump($cate);
 
         return response()->json($cate, 201);
     }
@@ -42,5 +43,11 @@ class CategoryController extends Controller
     public function deleteCategory($id) {
         Category::findOrFail($id)->delete();
         return response('Delete successfully',200);
+    }
+
+    public function searchCategory(Request $request) {
+        $search = $request->get('search');
+        $lsSearch = Category::select()->where('title','LIKE',"%$search%")->get();
+        return response()->json($lsSearch, 200);
     }
 }

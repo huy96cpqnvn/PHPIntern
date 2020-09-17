@@ -9,6 +9,11 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $fillable = [
-        'title'
+        'title','description'
     ];
+
+    public function news() {
+        return $this->hasMany('App\News','category_id','id');
+    }
+
 }

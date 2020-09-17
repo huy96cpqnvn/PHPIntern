@@ -27,6 +27,7 @@ $app = new Laravel\Lumen\Application(
 
  $app->withEloquent();
 
+$app->register(Irazasyed\Larasupport\Providers\ArtisanServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -113,3 +114,4 @@ $app->router->group([
 });
 
 return $app;
+
