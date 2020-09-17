@@ -7,6 +7,13 @@
                         <button class="btn-primary btn-sm">Add Category</button>
                     </router-link>
                 </div>
+                <div class="col-sm-4"></div>
+
+                <div class="col-sm-4">
+
+                    <input type="search" class="form-control form-control-sm ml-3 w-75" v-model="search" @change="searchCategory"  placeholder="Search by title">
+                </div>
+
 
             </div>
             <table class="table table-bordered table-striped">
@@ -42,6 +49,7 @@ export default {
     name: "ShowCategory",
     data() {
         return {
+            search: null
         }
     },
     created() {
@@ -55,6 +63,13 @@ export default {
     methods: {
         getList(){
             this.$store.dispatch('getCategory')
+        },
+        searchCategory(){
+
+                return this.$store.dispatch('searchCategory', {search: this.search}).then(res => {
+                    this.$store.commit('Cate_Add', res.data)
+                })
+
         },
         deleteCategory(id) {
             swal({

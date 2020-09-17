@@ -109,6 +109,9 @@ export default {
             return this.$store.getters.cateAdd;
         }
     },
+    created() {
+        return this.$store.getters.cateAdd;
+    },
     mounted() {
         var id = this.$route.params.id
         this.newsId = id

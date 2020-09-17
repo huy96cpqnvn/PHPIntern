@@ -49,6 +49,15 @@ export default {
         return result;
     },
 
+    searchNews({commit}, payload) {
+        let result = axios.get('api/news/search/' + payload.search).then(res => {
+            console.log(res);
+            return res
+        })
+        return result
+    },
+
+
     getCategory({commit}) {
         var url = "./api/category"
         axios.get(url).then(res => {
@@ -83,6 +92,13 @@ export default {
     },
     deleteCategory({commit, dispatch}, payload) {
         let result = axios.delete('api/category/' + payload.id).then(res => {
+            return res
+        })
+        return result
+    },
+    searchCategory({commit}, payload) {
+        let result = axios.get('api/category/search/' + payload.search).then(res => {
+            console.log(res);
             return res
         })
         return result

@@ -27,6 +27,7 @@ class NewsController extends Controller
         }
 //        var_dump(json_encode($data));die; //var_dump là đưa ra dữ liệu json. encode là chuyển từ mảng về string
                                             //decode là chuyển từ string về mảng
+
         return response()->json($data,200);
 
     }
@@ -118,8 +119,39 @@ class NewsController extends Controller
 
     public function showNewsByStatus($status)
     {
+        $data = [];
         $news = News::where('status', $status)->orderBy('created_at', 'desc')->get();
-        return response()->json($news, 200);
+        foreach ($news as $new) {
+//            $data[$key]['id'] = $value['id'];
+            $data[$new->id]['title'] = $new->title;
+            $data[$new->id]['category'] = $new->category->title;
+            $data[$new->id]['description'] = $new->description;
+            $data[$new->id]['content'] = $new->content;
+            $data[$new->id]['author'] = $new->author;
+            $data[$new->id]['status'] = $new->status;
+            $data[$new->id]['id'] = $new->id;
+            $data[$new->id]['category_id'] = $new->category_id;
+        }
 
+        return response()->json($data, 200);
+
+    }
+
+    public function searchNews($search = null) {
+        $data = [];
+        $lsSearch = News::whereRaw("title like '%" . $search . "%'")->get();
+
+        foreach ($lsSearch as $new) {
+//            $data[$key]['id'] = $value['id'];
+            $data[$new->id]['title'] = $new->title;
+            $data[$new->id]['category'] = $new->category->title;
+            $data[$new->id]['description'] = $new->description;
+            $data[$new->id]['content'] = $new->content;
+            $data[$new->id]['author'] = $new->author;
+            $data[$new->id]['status'] = $new->status;
+            $data[$new->id]['id'] = $new->id;
+            $data[$new->id]['category_id'] = $new->category_id;
+        }
+        return response()->json($data, 200);
     }
 }

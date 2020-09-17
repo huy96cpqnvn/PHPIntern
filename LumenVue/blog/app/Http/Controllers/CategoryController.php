@@ -45,9 +45,8 @@ class CategoryController extends Controller
         return response('Delete successfully',200);
     }
 
-    public function searchCategory(Request $request) {
-        $search = $request->get('search');
-        $lsSearch = Category::select()->where('title','LIKE',"%$search%")->get();
+    public function searchCategory($search = null) {
+        $lsSearch = Category::whereRaw("title like '%" . $search . "%'")->get();
         return response()->json($lsSearch, 200);
     }
 }

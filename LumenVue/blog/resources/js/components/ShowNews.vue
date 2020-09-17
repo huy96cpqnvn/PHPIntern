@@ -14,6 +14,10 @@
                 <router-link to="/news/create"><button class="btn-primary btn-sm">Add News</button></router-link>
             </div>
 
+            <div class="col-sm-3">
+                <input type="search" class="form-control form-control-sm " v-model="search" @change="searchNews" placeholder="Search by title">
+            </div>
+
         </div>
         <table class="table table-bordered table-striped">
             <thead>
@@ -57,21 +61,34 @@ export default {
     name: "ShowNews",
     data() {
         return {
-            status: "All"
+            status: "All",
+            search: null
             }
         },
     created() {
         this.getList();
+        this.getListCategory();
     },
     computed: {
         news() {
             return this.$store.getters.newsAdd;
+        },
+        categories() {
+            return this.$store.getters.cateAdd;
         }
 },
     methods:
         {
+            getListCategory(){
+                this.$store.dispatch('getCategory')
+            },
             getList() {
                 this.$store.dispatch('getNews')
+            },
+            searchNews() {
+                return this.$store.dispatch('searchNews', {search: this.search}).then(res => {
+                    this.$store.commit('News_Add', res.data)
+                })
             },
             showNewsByStatus() {
               this.$store.dispatch('showNewsByStatus', {status: this.status}).then(res => {

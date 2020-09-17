@@ -19234,8 +19234,17 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         });
         return result;
     },
-    getCategory: function getCategory(_ref7) {
+    searchNews: function searchNews(_ref7, payload) {
         var commit = _ref7.commit;
+
+        var result = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('api/news/search/' + payload.search).then(function (res) {
+            console.log(res);
+            return res;
+        });
+        return result;
+    },
+    getCategory: function getCategory(_ref8) {
+        var commit = _ref8.commit;
 
         var url = "./api/category";
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(url).then(function (res) {
@@ -19248,17 +19257,17 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
             console.log(err);
         });
     },
-    addCategory: function addCategory(_ref8, payload) {
-        var commit = _ref8.commit,
-            dispatch = _ref8.dispatch;
+    addCategory: function addCategory(_ref9, payload) {
+        var commit = _ref9.commit,
+            dispatch = _ref9.dispatch;
 
         var result = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('api/category', payload).then(function (res) {
             return res;
         });
         return result;
     },
-    editCategory: function editCategory(_ref9, payload) {
-        var commit = _ref9.commit;
+    editCategory: function editCategory(_ref10, payload) {
+        var commit = _ref10.commit;
 
         var result = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('api/category/' + payload.id).then(function (res) {
             commit('Cate_Edit', res.data);
@@ -19266,9 +19275,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         });
         return result;
     },
-    updateCategory: function updateCategory(_ref10, payload) {
-        var commit = _ref10.commit,
-            dispatch = _ref10.dispatch;
+    updateCategory: function updateCategory(_ref11, payload) {
+        var commit = _ref11.commit,
+            dispatch = _ref11.dispatch;
 
         var result = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('api/category/' + payload.id, payload).then(function (res) {
             console.log(res);
@@ -19276,11 +19285,20 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
         });
         return result;
     },
-    deleteCategory: function deleteCategory(_ref11, payload) {
-        var commit = _ref11.commit,
-            dispatch = _ref11.dispatch;
+    deleteCategory: function deleteCategory(_ref12, payload) {
+        var commit = _ref12.commit,
+            dispatch = _ref12.dispatch;
 
         var result = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('api/category/' + payload.id).then(function (res) {
+            return res;
+        });
+        return result;
+    },
+    searchCategory: function searchCategory(_ref13, payload) {
+        var commit = _ref13.commit;
+
+        var result = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('api/category/search/' + payload.search).then(function (res) {
+            console.log(res);
             return res;
         });
         return result;
@@ -20202,7 +20220,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -20284,12 +20302,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "ShowCategory",
     data: function data() {
-        return {};
+        return {
+            search: null
+        };
     },
     created: function created() {
         this.getList();
@@ -20304,8 +20331,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getList: function getList() {
             this.$store.dispatch('getCategory');
         },
-        deleteCategory: function deleteCategory(id) {
+        searchCategory: function searchCategory() {
             var _this = this;
+
+            return this.$store.dispatch('searchCategory', { search: this.search }).then(function (res) {
+                _this.$store.commit('Cate_Add', res.data);
+            });
+        },
+        deleteCategory: function deleteCategory(id) {
+            var _this2 = this;
 
             swal({
                 title: 'Are you sure?',
@@ -20317,12 +20351,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 dangerMode: true
             }).then(function (willDelete) {
                 if (willDelete) {
-                    _this.$store.dispatch('deleteCategory', {
+                    _this2.$store.dispatch('deleteCategory', {
                         id: id
 
                     }).then(function (res) {
                         if (res.status == 200) {
-                            _this.getList();
+                            _this2.getList();
                             swal({
                                 title: "Delete Category Successfully",
                                 icon: "success"
@@ -20362,7 +20396,34 @@ var render = function() {
             ])
           ],
           1
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search,
+                expression: "search"
+              }
+            ],
+            staticClass: "form-control form-control-sm ml-3 w-75",
+            attrs: { type: "search", placeholder: "Search by title" },
+            domProps: { value: _vm.search },
+            on: {
+              change: _vm.searchCategory,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.search = $event.target.value
+              }
+            }
+          })
+        ])
       ]),
       _vm._v(" "),
       _c("table", { staticClass: "table table-bordered table-striped" }, [
@@ -20534,7 +20595,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -20599,36 +20660,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "ShowNews",
     data: function data() {
         return {
-            status: "All"
+            status: "All",
+            search: null
         };
     },
     created: function created() {
         this.getList();
+        this.getListCategory();
     },
 
     computed: {
         news: function news() {
             return this.$store.getters.newsAdd;
+        },
+        categories: function categories() {
+            return this.$store.getters.cateAdd;
         }
     },
     methods: {
+        getListCategory: function getListCategory() {
+            this.$store.dispatch('getCategory');
+        },
         getList: function getList() {
             this.$store.dispatch('getNews');
         },
-        showNewsByStatus: function showNewsByStatus() {
+        searchNews: function searchNews() {
             var _this = this;
 
-            this.$store.dispatch('showNewsByStatus', { status: this.status }).then(function (res) {
+            return this.$store.dispatch('searchNews', { search: this.search }).then(function (res) {
                 _this.$store.commit('News_Add', res.data);
             });
         },
-        deleteNews: function deleteNews(id) {
+        showNewsByStatus: function showNewsByStatus() {
             var _this2 = this;
+
+            this.$store.dispatch('showNewsByStatus', { status: this.status }).then(function (res) {
+                _this2.$store.commit('News_Add', res.data);
+            });
+        },
+        deleteNews: function deleteNews(id) {
+            var _this3 = this;
 
             swal({
                 title: 'Are you sure?',
@@ -20640,11 +20720,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 dangerMode: true
             }).then(function (willDelete) {
                 if (willDelete) {
-                    _this2.$store.dispatch('deleteNews', {
+                    _this3.$store.dispatch('deleteNews', {
                         id: id
                     }).then(function (res) {
                         if (res.status == 200) {
-                            _this2.getList();
+                            _this3.getList();
                             swal({
                                 title: "Delete News Successfully",
                                 icon: "success"
@@ -20737,7 +20817,32 @@ var render = function() {
             ])
           ],
           1
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search,
+                expression: "search"
+              }
+            ],
+            staticClass: "form-control form-control-sm ",
+            attrs: { type: "search", placeholder: "Search by title" },
+            domProps: { value: _vm.search },
+            on: {
+              change: _vm.searchNews,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.search = $event.target.value
+              }
+            }
+          })
+        ])
       ]),
       _vm._v(" "),
       _c("table", { staticClass: "table table-bordered table-striped" }, [
@@ -22110,7 +22215,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -22232,6 +22337,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         categories: function categories() {
             return this.$store.getters.cateAdd;
         }
+    },
+    created: function created() {
+        return this.$store.getters.cateAdd;
     },
     mounted: function mounted() {
         var _this = this;
