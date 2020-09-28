@@ -6,9 +6,13 @@
     "type": "project",
     "require": {
         "php": "^7.2.5",
+        "guzzlehttp/guzzle": "^7.1",
+        "illuminate/mail": "^7.28",
+        "illuminate/notifications": "^7.28",
         "irazasyed/larasupport": "^1.0",
         "laravel/lumen-framework": "^7.0",
         "laravel/ui": "^2.2",
+        "ramsey/uuid": "^4.1",
         "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {

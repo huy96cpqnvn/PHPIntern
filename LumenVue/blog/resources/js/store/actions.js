@@ -102,6 +102,25 @@ export default {
             return res
         })
         return result
+    },
+
+    login({commit}, credentials) {
+        let result = axios.post('api/login', credentials).then(res => {
+            commit('setUserData', res.data.token)
+        })
+        return result
+    },
+
+    register({commit, dispatch}, payload) {
+        let result = axios.post('api/register', payload).then(res => {
+            return res;
+        })
+        return result;
+    },
+
+    logout({commit}) {
+        commit('clearUserData')
     }
+
 
 }

@@ -4,6 +4,9 @@ import CreateCategory from "./components/CreateCategory";
 import EditCategory from "./components/EditCategory";
 import CreateNews from "./components/CreateNews";
 import EditNews from "./components/EditNews";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
 
 
 const routes = [
@@ -13,7 +16,11 @@ const routes = [
 
     {path: '/category', name: 'showCate', component: ShowCategory},
     {path: '/category/create', name: 'createCate', component: CreateCategory},
-    {path: '/category/edit/:id', name: 'editCate', component: EditCategory}
+    {path: '/category/edit/:id', name: 'editCate', component: EditCategory},
+
+    {path: '/login', name: 'login', component: Login},
+    {path: '/register', name: 'register', component: Register},
+    {path: '/dashboard', name: 'dashboard', component: Dashboard},
 
 ];
 

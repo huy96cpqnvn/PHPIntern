@@ -8,7 +8,7 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Today News</div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><router-link :to="{name: 'dashboard'}">Dashboard</router-link></a>
                 <a class="list-group-item list-group-item-action bg-light"><router-link :to="{name: 'showCate'}">Category</router-link></a>
                 <a class="list-group-item list-group-item-action bg-light"><router-link :to="{name: 'showNews'}">News</router-link></a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
@@ -38,13 +38,17 @@
 <!--                        </li>-->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
+                                Account
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
+<!--                                <a class="dropdown-item"><router-link :to="{ name: 'profile' }">Profile</router-link></a>-->
+                                <a class="dropdown-item"><router-link :to="{ name: 'login' }">Login</router-link></a>
+                                <a class="dropdown-item"><router-link :to="{ name: 'register' }">Register</router-link></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
+                                <button class="btn btn-primary" style="margin-left: 25px;" type="button" @click="logout()" v-if="isLogged">
+                                    Logout
+                                </button>
                             </div>
                         </li>
                     </ul>
@@ -67,7 +71,18 @@
 </template>
 
 <script>
-
-export default {};
+import { mapGetters } from 'vuex'
+export default {
+    computed: {
+        ...mapGetters([
+            'isLogged'
+        ])
+    },
+    methods: {
+        logout() {
+            this.$store.dispatch('logout')
+        }
+    }
+};
 
 </script>

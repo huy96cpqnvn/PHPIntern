@@ -11,5 +11,15 @@ export default {
     },
     Cate_Edit(state, payload) {
         state.cateEdit = payload
-    }
+    },
+
+    setUserData(state, userData) {
+        state.user = userData
+        localStorage.setItem('user', JSON.stringify(userData))
+
+    },
+    clearUserData() {
+        localStorage.removeItem('user')
+        location.reload()
+    },
 }

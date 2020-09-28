@@ -15,6 +15,7 @@
 //    return $router->app->version();
 //});
 $router->group(['prefix' => 'api'], function ($router){
+
     $router->get('category', 'CategoryController@showCategory');
     $router->get('category/{id}', 'CategoryController@showOneCategory');
     $router->post('category', 'CategoryController@addCategory');
