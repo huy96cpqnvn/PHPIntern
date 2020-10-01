@@ -1,4 +1,20 @@
 <template>
+    <div class="d-flex" id="wrapper">
+
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-light"><router-link :to="{name: 'dashboard'}">Dashboard</router-link></a>
+                <a class="list-group-item list-group-item-action bg-light"><router-link :to="{name: 'showCate'}">Category</router-link></a>
+                <a class="list-group-item list-group-item-action bg-light"><router-link :to="{name: 'showNews'}">News</router-link></a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
     <div>
         <div class="col-xl-8 mx-auto m-5 " style="border:2px solid #000000; padding:5px">
             <div class="panel panel-default">
@@ -23,6 +39,8 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
         </div>
     </div>
 </template>

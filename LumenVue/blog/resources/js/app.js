@@ -8,6 +8,8 @@ import routes from "./routes";
 import Vuex from 'vuex';
 import swal from 'vue-swal';
 import axios from 'axios'
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 Vue.config.productionTip = false
 

@@ -1,44 +1,70 @@
 <template>
     <div>
-        <div class="container">
-            <div class="row m-2">
-                <div class="col-sm-4">
-                    <router-link to="/category/create">
-                        <button class="btn-primary btn-sm">Add Category</button>
-                    </router-link>
+        <div class="d-flex" id="wrapper">
+
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-light">
+                        <router-link :to="{name: 'dashboard'}">Dashboard</router-link>
+                    </a>
+                    <a class="list-group-item list-group-item-action bg-light">
+                        <router-link :to="{name: 'showCate'}">Category</router-link>
+                    </a>
+                    <a class="list-group-item list-group-item-action bg-light">
+                        <router-link :to="{name: 'showNews'}">News</router-link>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
                 </div>
-                <div class="col-sm-4"></div>
-
-                <div class="col-sm-4">
-
-                    <input type="search" class="form-control form-control-sm ml-3 w-75" v-model="search" @change="searchCategory"  placeholder="Search by title">
-                </div>
-
-
             </div>
-            <table class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="(cate, index) in categories" v-bind:key="index">
-                    <td>
-                        {{ cate.title }}
-                    </td>
-                    <td>{{ cate.description}}</td>
-                    <td class="text-center">
-                        <button class=" btn-danger btn-sm" v-on:click="deleteCategory(cate.id)" >Delete</button>
-                        <router-link :to="{name:'editCate', params:{id:cate.id}}">
-                            <button class="btn-primary btn-sm">Edit</button>
-                        </router-link>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+
+                <div class="container">
+                    <div class="row m-2">
+                        <div class="col-sm-4">
+                            <router-link to="/category/create">
+                                <button class="btn-primary btn-sm">Add Category</button>
+                            </router-link>
+                        </div>
+                        <div class="col-sm-4"></div>
+
+                        <div class="col-sm-4">
+
+                            <input type="search" class="form-control form-control-sm ml-3 w-75" v-model="search"
+                                   @change="searchCategory" placeholder="Search by title">
+                        </div>
+
+
+                    </div>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="(cate, index) in categories" v-bind:key="index">
+                            <td>
+                                {{ cate.title }}
+                            </td>
+                            <td>{{ cate.description }}</td>
+                            <td class="text-center">
+                                <button class=" btn-danger btn-sm" v-on:click="deleteCategory(cate.id)">Delete</button>
+                                <router-link :to="{name:'editCate', params:{id:cate.id}}">
+                                    <button class="btn-primary btn-sm">Edit</button>
+                                </router-link>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -61,14 +87,14 @@ export default {
         }
     },
     methods: {
-        getList(){
+        getList() {
             this.$store.dispatch('getCategory')
         },
-        searchCategory(){
+        searchCategory() {
 
-                return this.$store.dispatch('searchCategory', {search: this.search}).then(res => {
-                    this.$store.commit('Cate_Add', res.data)
-                })
+            return this.$store.dispatch('searchCategory', {search: this.search}).then(res => {
+                this.$store.commit('Cate_Add', res.data)
+            })
 
         },
         deleteCategory(id) {
