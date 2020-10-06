@@ -7,6 +7,8 @@ import EditNews from "./components/EditNews";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import ForgotPassword from "./components/ForgotPassword";
+import ChangePassword from "./components/ChangePassword";
 
 
 const routes = [
@@ -37,6 +39,12 @@ const routes = [
             auth: false
         }},
     {path: '/dashboard', name: 'dashboard', component: Dashboard, meta: {
+            auth: true
+        }},
+    {path: '/reset-password', name: 'reset-password', component: ForgotPassword, meta: {
+            auth: false
+        }},
+    {path: '/change-password', name: 'change-password', component: ChangePassword, meta: {
             auth: true
         }},
 

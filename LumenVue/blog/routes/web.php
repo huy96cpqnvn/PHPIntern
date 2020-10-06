@@ -47,7 +47,19 @@ $router->group(['prefix' => 'api'], function ($router){
     // Matches "/api/users
     $router->get('users', 'UserController@allUsers');
 
+    //Send reset password mail
+    $router->post('reset-password', 'AuthController@sendPasswordResetLink');
+
+    //handle reset password form process
+    $router->post('reset/password', 'AuthController@callResetPassword');
+
+    //change password
+    $router->post('change-password', 'AuthController@changePassword');
 });
+//$router->group(['middleware' => 'auth:api'], function (){
+//    $router->post('change-password', 'AuthController@changePassword');
+//});
+
 $router->get('/{route:.*}/', function ()  {
     return view('app');
 });

@@ -60,7 +60,7 @@ export default {
 
     getCategory({commit}) {
         var url = "./api/category"
-        axios.get(url).then(res => {
+        axios.get(url, {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}}).then(res => {
             if (res.status == 200) {
                 commit('Cate_Add', res.data);
             } else {

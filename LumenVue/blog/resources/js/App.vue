@@ -19,6 +19,7 @@
                                 <!--                                <a class="dropdown-item"><router-link :to="{ name: 'profile' }">Profile</router-link></a>-->
                                 <a class="dropdown-item"><router-link :to="{ name: 'login' }">Login</router-link></a>
                                 <a class="dropdown-item"><router-link :to="{ name: 'register' }">Register</router-link></a>
+                                <a class="dropdown-item"><router-link :to="{ name: 'change-password' }">Change Password</router-link></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 <button class="btn btn-primary" style="margin-left: 25px;" type="button" @click="logout()" v-if="isLogged">
